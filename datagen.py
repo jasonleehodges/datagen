@@ -23,7 +23,7 @@ class DataGen(object):
             self.iters = int(self.rownum/1000)
 
     def dates(self: object, start: str, end: str) -> None:
-        """ To generate dates, provide a start and end date in the form of YYY-MM-DD"""
+        """ To generate dates, provide a start and end date in the form of YYYY-MM-DD"""
         self.start = datetime.datetime.strptime(start, '%Y-%m-%d')
         self.end = datetime.datetime.strptime(end, '%Y-%m-%d')        
 
