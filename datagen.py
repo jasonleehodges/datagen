@@ -13,7 +13,7 @@ class DataGen(object):
     """
     def __init__(self: object, filename: str, rownum: int) -> None:
         self.faker = faker.Faker()
-        self.__filename__ = filename
+        self.__filename__ = filename + ".csv"
         self.rownum = rownum/5
         if self.rownum < int(1000):
             self.chunks = int(self.rownum)
@@ -23,7 +23,7 @@ class DataGen(object):
             self.iters = int(self.rownum/1000)
 
     def dates(self: object, start: str, end: str) -> None:
-        """ To generate dates, provide a start and end date in the form of YYY-MM-DD"""
+        """ To generate dates, provide a start and end date in the form of YYYY-MM-DD"""
         self.start = datetime.datetime.strptime(start, '%Y-%m-%d')
         self.end = datetime.datetime.strptime(end, '%Y-%m-%d')        
 
@@ -79,6 +79,6 @@ class DataGen(object):
         print("Generation completed. Elapsed time: ", "{0:.2f}".format(elapsed_time), " minutes")
 
 if __name__ == "__main__":
-    dg = DataGen("fakedata_1000.csv",1000)
-    dg.dates("2017-01-01","2017-12-31")
+    dg = DataGen("test100k",100000)
+    dg.dates("2016-01-01","2016-11-30")
     dg.generate()
